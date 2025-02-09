@@ -4,6 +4,7 @@ import ShowOrderProduct from "../../ShowOrderProduct";
 
 function Profile() {
   const { user, userOrder } = useContext(AppContext);
+  console.log(userOrder);
   return (
     <>
       <div className="container text-center my-5">
@@ -24,30 +25,34 @@ function Profile() {
             </tr>
           </thead>
           <tbody>
-            {userOrder && (
-              <>
-                {userOrder?.map((product) => (
-                  <tr key={product._id}>
-                    <td>
-                      <ShowOrderProduct items={product?.orderItems} />
-                    </td>
-                    <td>
-                      <ul style={{ fontWeight: "bold" }}>
-                        <li>OrderId: {product?.orderId}</li>
-                        <li>PaumentId: {product?.paymentId}</li>
-                        <li>PaymentStatus: {product?.payStatus}</li>
-                        <li>Name: {product?.userShipping?.fullname}</li>
-                        <li>Phone: {product?.userShipping?.phoneNumber}</li>
-                        <li>City: {product?.userShipping?.city}</li>
-                        <li>State: {product?.userShipping?.state}</li>
-                        <li>Country: {product?.userShipping?.country}</li>
-                        <li>Pincode: {product?.userShipping?.pincode}</li>
-                        <li>Near By: {product?.userShipping?.address}</li>
-                      </ul>
-                    </td>
-                  </tr>
-                ))}
-              </>
+            {Array.isArray(userOrder) && userOrder.length > 0 ? (
+              userOrder?.map((product) => (
+                <tr key={product._id}>
+                  <td>
+                    <ShowOrderProduct items={product?.orderItems} />
+                  </td>
+                  <td>
+                    <ul style={{ fontWeight: "bold" }}>
+                      <li>OrderId: {product?.orderId}</li>
+                      <li>PaymentId: {product?.paymentId}</li>
+                      <li>PaymentStatus: {product?.payStatus}</li>
+                      <li>Name: {product?.userShipping?.fullname}</li>
+                      <li>Phone: {product?.userShipping?.phoneNumber}</li>
+                      <li>City: {product?.userShipping?.city}</li>
+                      <li>State: {product?.userShipping?.state}</li>
+                      <li>Country: {product?.userShipping?.country}</li>
+                      <li>Pincode: {product?.userShipping?.pincode}</li>
+                      <li>Near By: {product?.userShipping?.address}</li>
+                    </ul>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="2" className="text-center text-muted">
+                  No orders found
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

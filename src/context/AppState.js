@@ -5,9 +5,9 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AppState(props) {
-  //const url = "http://localhost:8080/api";
+  const url = "http://localhost:8080/api";
 
-  const url = "https://mern-e-commerce-1-t3d8.onrender.com/api";
+  //const url = "https://mern-e-commerce-1-t3d8.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState([]);
@@ -17,7 +17,7 @@ function AppState(props) {
   const [cart, setCart] = useState([]);
   const [reload, setReload] = useState(false);
   const[userAddress,setUserAddress] = useState("");
-  const [userOrder,setUserOrder] = useState([])
+  const [userOrder,setUserOrder] = useState([]);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -31,6 +31,7 @@ function AppState(props) {
       setProducts(api.data.products);
       setFilterData(api.data.products);
       userProfile();
+     
     };
     fetchProduct();
     userCart();
