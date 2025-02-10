@@ -1,22 +1,37 @@
 body {
- background-color: black;
- color: white;
-
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-body::-webkit-scrollbar{
-  display: none;
+body::-webkit-scrollbar {
+  width: 8px;
 }
 
-.nav_bar{
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* Navigation Bar */
+.nav_bar {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: rgb(154, 58, 243);
 }
-.search_bar{
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Search Bar */
+.search_bar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,38 +39,105 @@ body::-webkit-scrollbar{
   border-radius: 20px;
   padding: 10px;
   width: 30%;
+  min-width: 200px;
 }
-.search_bar input{
+
+.search_bar input {
   border: none;
   background-color: black;
   color: white;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
-.search_bar input::placeholder{
+
+.search_bar input::placeholder {
   font-weight: bold;
   color: white;
 }
-.search_bar input:focus{
+
+.search_bar input:focus {
   outline: none;
 }
-.sub_bar{
+
+/* Sub Navigation Bar */
+.sub_bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   background-color: blueviolet;
+  flex-wrap: wrap;
 }
-.sub_bar .items{
+
+.sub_bar .items {
   padding: 10px;
   font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
 }
-.sub_bar .items:hover{
+
+.sub_bar .items:hover {
   background-color: black;
   cursor: pointer;
-
 }
 
-td{
+/* Table Styling */
+td {
   vertical-align: middle;
   cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav_bar {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+  }
+
+  .search_bar {
+      width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav_bar {
+      flex-direction: column;
+      text-align: center;
+      padding: 10px;
+  }
+
+  .search_bar {
+      width: 80%;
+  }
+
+  .sub_bar {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .sub_bar .items {
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search_bar {
+      width: 90%;
+  }
+
+  .search_bar input {
+      width: 100%;
+  }
+
+  .sub_bar {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .sub_bar .items {
+      padding: 15px;
+      font-size: 1rem;
+  }
 }

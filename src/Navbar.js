@@ -118,7 +118,7 @@ function Navbar() {
                 filterByPrice(15999);
               }}
             >
-              15999
+              10000
             </div>
             <div
               className="items"
@@ -126,7 +126,7 @@ function Navbar() {
                 filterByPrice(47999);
               }}
             >
-              47999
+              20000
             </div>
             <div
               className="items"
@@ -134,7 +134,7 @@ function Navbar() {
                 filterByPrice(65999);
               }}
             >
-              65999
+              30000
             </div>
             <div
               className="items"
@@ -142,15 +142,7 @@ function Navbar() {
                 filterByPrice(70999);
               }}
             >
-              70999
-            </div>
-            <div
-              className="items"
-              onClick={() => {
-                filterByPrice(110000);
-              }}
-            >
-              110000
+              50000
             </div>
           </div>
         )}

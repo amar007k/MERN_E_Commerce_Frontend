@@ -5,9 +5,9 @@ import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function AppState(props) {
- // const url = "http://localhost:8080/api";
+ const url = "http://localhost:8080/api";
 
-  const url = "https://mern-e-commerce-1-t3d8.onrender.com/api";
+  //const url = "https://mern-e-commerce-1-t3d8.onrender.com/api";
 
   const [products, setProducts] = useState([]);
   const [token, setToken] = useState([]);
